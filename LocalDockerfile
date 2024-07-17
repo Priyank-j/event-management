@@ -1,0 +1,53 @@
+
+# Start from the latest golang base image
+FROM golang:1.19-alpine3.16
+
+# Add Maintainer Info
+LABEL maintainer="Shourya Pratap Singh <shourya@finbox.in>"
+
+# Set the Current Working Directory inside the container
+WORKDIR /app
+
+ARG GH_PAT
+ARG PROMETHEUS_PORT=9090
+
+ENV GO111MODULE=on
+RUN apk update && apk add --no-cache git openssh-client ca-certificates tzdata && update-ca-certificates
+RUN git config --global url."https://${GH_PAT}@github.com/".insteadOf "https://github.com/"
+
+# Copy go mod and sum files
+COPY go.mod go.sum ./
+
+# Download all dependencies. Dependencies will be cached if the go.mod and go.sum files are not changed
+RUN go mod download
+
+RUN go install github.com/air-verse/air@latest
+
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
+
+RUN apk --no-cache add ca-certificates
+
+RUN apk add --no-cache tzdata
+
+RUN apk add build-base
+
+RUN apk add libxml2-dev libxslt-dev xz-dev zlib-dev
+
+# Expose port 3332 to the outside world
+EXPOSE 3332
+
+EXPOSE 2345
+EXPOSE ${PROMETHEUS_PORT}
+
+# Build Args
+ARG LOG_DIR=/app/logs
+
+# Create Log Directory
+RUN mkdir -p ${LOG_DIR}
+
+# Environment Variables
+
+ENV LOG_DIR=${LOG_DIR}/app.log
+ENV PROMETHEUS_PORT=${PROMETHEUS_PORT}
+
+CMD ["air"]

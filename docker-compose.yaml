@@ -1,0 +1,79 @@
+version: "3"
+
+services:
+
+  # redis:
+  #   container_name: redis-server
+  #   image: redis:6.2.6
+  #   networks:
+  #     - finboxnet
+  #   hostname: localhost
+  #   ports:
+  #     - 6379:6379
+  #   volumes:
+  #     - redis-volume:/data
+  #   healthcheck:
+  #     test: [ "CMD-SHELL", "redis-cli ping | grep PONG" ]
+  #     interval: 1s
+  #     timeout: 3s
+  #     retries: 5
+
+  websocket:
+    environment:
+      - STAGE=${stage:-local}
+      - AWS_PROFILE=${aws_profile:-dev}
+      - LOCAL_PS=${local_ps:-none}
+      - OS_ENV=docker
+      - DB_CONN=${DB_OVERRIDE:-}
+      - DB_OVERRIDE=${DB_OVERRIDE:-0}
+      - LENDING_SENDGRID_KEY=${LENDING_SENDGRID_KEY:-}
+      - LENDING_MIDDLEWARE_BUCKET=${LENDING_MIDDLEWARE_BUCKET:-}
+    container_name: go-docker-event-optimized-${stage:-local}
+    build:
+      args:
+        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+        - GH_PAT=${GH_PAT}
+      context: ./
+      dockerfile: LocalDockerfile
+    restart: always
+    ports:
+      - 3332:3332
+    volumes:
+      - ${HOME}/.aws/credentials:/root/.aws/credentials:ro
+      - ~/logs/go-docker:/app/logs
+      - ./:/app
+      - ./conf:/app/config
+    networks:
+      - finboxnet
+    # depends_on:
+    #   redis:
+    #     condition: service_healthy
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    ports:
+      - "9092:9092"
+    expose:
+      - "9093"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "quickstart-events:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  postgres-volume:
+    driver: local
+  redis-volume:
+    driver: local
+
+networks:
+  finboxnet:

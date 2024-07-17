@@ -1,17 +1,22 @@
 package websocket
 
-import "github.com/gofiber/contrib/websocket"
+import (
+	"go-event-management/pkg/events"
+
+	"github.com/gofiber/contrib/websocket"
+)
 
 type miniClient map[string]*websocket.Conn // Modified type
 
 type ClientObject struct {
-	USER string
+	user string
 	conn *websocket.Conn
 }
 
 type BroadcastObject struct {
-	MSG  string
-	FROM ClientObject
+	eventData events.EventData
+	msg       string
+	from      ClientObject
 }
 
 var clients = make(miniClient) // Initialized as a nested map

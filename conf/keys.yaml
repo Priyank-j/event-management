@@ -1,0 +1,936 @@
+- name: lenders/axis/encryption_secret
+  key: AXIS_ENCRYPTION_SECRET_PROD
+  environmentIn:
+  - prod
+- name: lenders/axis/pem_s3_path
+  key: AXIS_PEM_S3_PATH_PROD
+  environmentIn:
+  - prod
+- name: lenders/axis/pem_s3_path
+  key: AXIS_PEM_S3_PATH
+  environmentNotIn:
+  - prod
+- name: lenders/capitalfloat/api_secret
+  key: CAPITALFLOAT_API_SECRET
+  environmentIn:
+  - prod
+- name: lenders/capitalfloat/api_key
+  key: CAPITALFLOAT_API_KEY
+  environmentIn:
+  - prod
+- name: lenders/capitalfloat/pem_s3_path
+  key: CAPITALFLOAT_PEM_S3_PATH_PROD
+  environmentIn:
+  - prod
+- name: lenders/capitalfloat/pem_s3_path
+  key: CAPITALFLOAT_PEM_S3_PATH
+  environmentNotIn:
+  - prod
+- name: internal/s3_bucket
+  key: LENDING_MIDDLEWARE_BUCKET_PROD
+  environmentIn:
+  - prod
+- name: internal/s3_bucket
+  key: LENDING_MIDDLEWARE_BUCKET_UAT
+  environmentIn:
+  - uat*
+- name: internal/s3_bucket
+  key: LENDING_MIDDLEWARE_BUCKET_DEV
+  environmentNotIn:
+  - prod
+  - uat*
+- name: thirdparty/sengrid/key
+  key: LENDING_SENDGRID_KEY
+- name: internal/fcm_key
+  key: LENDING_FCM_KEY
+- name: internal/aes_enc_key
+  key: AES_ENC_KEY
+- name: internal/aes_enc_pass
+  key: AES_ENC_PASS
+- name: thirdparty/experian/voucher
+  key: EXPERIAN_VOUCHER_PROD
+  environmentIn:
+  - prod
+- name: thirdparty/cashfree/client_secret
+  key: LENDING_CASHFREE_CLIENT_SECRET
+  environmentIn:
+  - prod
+- name: thirdparty/cashfree/client_id
+  key: LENDING_CASHFREE_CLIENT_ID
+  environmentIn:
+  - prod
+- name: thirdparty/hyperverge/key
+  key: HYPERVERGE_KEY
+- name: lenders/arthan/key
+  key: ARTHAN_KEY
+  environmentIn:
+  - prod
+- name: thirdparty/sinch/app_key
+  key: SINCH_PROD_APP_KEY
+  environmentIn:
+  - prod  
+- name: thirdparty/sinch/secret_key
+  key: SINCH_PROD_SECRET_KEY
+  environmentIn:
+  - prod
+- name: thirdparty/sinch/app_key
+  key: SINCH_UAT_APP_KEY
+  environmentNotIn:
+  - prod  
+- name: thirdparty/sinch/secret_key
+  key: SINCH_UAT_SECRET_KEY
+  environmentNotIn:
+  - prod
+- name: thirdparty/exotel/api_token
+  key: EXOTEL_API_TOKEN
+- name: thirdparty/exotel/sid
+  key: EXOTEL_SID
+- name: thirdparty/exotel/api_key
+  key: EXOTEL_API_KEY
+- name: thirdparty/karix/sms_key
+  key: KARIX_SMS_KEY
+- name: thirdparty/karix/otp_key
+  key: KARIX_OTP_KEY
+- name: thirdparty/mastersindia/client_secret
+  key: GSTIN_CLIENT_SECRET
+- name: thirdparty/mastersindia/password
+  key: GSTIN_PASSWORD
+- name: internal/airflow/lending_api_key
+  key: AIRFLOW_LENDING_API_KEY
+- name: internal/adhoc_nach_s3_bucket
+  key: ADHOC_NACH_PRESENTATION_PROD
+  environmentIn:
+  - prod
+- name: internal/cred_creator
+  key: cred_create_key
+- name: internal/service_to_service_key
+  key: service_to_service_key_prod
+  environmentIn:
+  - prod
+- name: internal/service_to_service_key
+  key: service_to_service_key_uat
+  environmentIn:
+  - uat*
+- name: internal/service_to_service_key
+  key: service_to_service_key_dev
+  environmentIn:
+  - dev*
+  - local
+- name: thirdparty/cashfree/manual_webhook_token
+  key: Cashfree_Manual_Webhook_Token
+  environmentIn:
+  - prod
+- name: thirdparty/cashfree/autocollect_client_id
+  key: CASHFREE_AUTOCOLLECT_CLIENTID_PROD
+  environmentIn:
+  - prod
+- name: thirdparty/cashfree/autocollect_client_secret
+  key: CASHFREE_AUTOCOLLECT_CLIENTSECRET_PROD
+  environmentIn:
+  - prod
+- name: internal/edi_secret_key
+  key: EDI_SECRET_KEY_PROD
+  environmentIn:
+  - prod
+- name: internal/edi_secret_key
+  key: EDI_SECRET_KEY_TEST
+  environmentNoIn:
+  - prod
+- name: internal/manual_emi_marking_api_key
+  key: MANUAL_EMI_MARKING_API_KEY
+- name: thirdparty/leegality/api_token
+  key: LEEGALITY_API_TOKEN_PROD
+  environmentIn:
+  - prod
+- name: thirdparty/leegality/private_salt
+  key: LEEGALITY_PRIVATE_SALT_PROD
+  environmentIn:
+  - prod
+- name: thirdparty/leegality/api_token
+  key: LEEGALITY_API_TOKEN_SANDBOX
+  environmentNotIn:
+  - prod
+- name: thirdparty/leegality/private_salt
+  key: LEEGALITY_PRIVATE_SALT_SANDBOX
+  environmentNotIn:
+  - prod
+- name: lenders/saraloan/token
+  key: SARALOAN_SANDBOX_TOKEN
+  environmentNotIn:
+  - prod
+- name: lenders/saraloan/token
+  key: SARALOAN_PROD_TOKEN
+  environmentIn:
+  - prod
+- name: thirdparty/shortio/api_key
+  key: SHORT_IO_API_KEY_DEV
+  environmentNotIn:
+  - prod
+- name: thirdparty/shortio/api_key
+  key: SHORT_IO_API_KEY_PROD
+  environmentIn:
+  - prod
+- name: lenders/westerncap/user
+  key: WESTERN_CAP_SANDBOX_USER
+  environmentNotIn:
+  - prod
+- name: lenders/westerncap/user
+  key: WESTERN_CAP_USER
+  environmentIn:
+  - prod
+- name: lenders/westerncap/pass
+  key: WESTERN_CAP_SANDBOX_PASS
+  environmentNotIn:
+  - prod
+- name: lenders/westerncap/pass
+  key: WESTERN_CAP_PASS
+  environmentIn:
+  - prod
+- name: internal/lisa_auth_token
+  key: LISA_GATEWAY_AUTH_TOKEN
+  environmentIn:
+  - prod
+- name: lenders/tcap/client_id
+  key: TCAP_CLIENT_ID
+  environmentNotIn:
+  - prod
+- name: lenders/tcap/client_secret
+  key: TCAP_CLIENT_SECRET
+  environmentNotIn:
+  - prod
+- name: lenders/tcap/user_name
+  key: TCAP_USER_NAME
+  environmentNotIn:
+  - prod
+- name: lenders/tcap/password
+  key: TCAP_API_PASSWORD
+  environmentNotIn:
+  - prod
+- name: lenders/tcap/auth_api_password
+  key: TCAP_AUTH_API_PASSWORD
+  environmentNotIn:
+  - prod
+- name: lenders/tcap/auth_key
+  key: TCAP_AUTHORISATION_KEY
+  environmentNotIn:
+  - prod
+- name: lenders/tcap/cibil_auth_key
+  key: TCAP_CIBIL_AUTHORISATION_KEY
+  environmentNotIn:
+  - prod
+- name: thirdparty/karza/api_key
+  key: KARZA_API_KEY
+  environmentNotIn:
+  - prod
+- name: internal/admin_api_key
+  key: prod_admin_api_key
+  environmentIn:
+  - prod
+- name: internal/admin_api_key
+  key: uat_admin_api_key
+  environmentIn:
+  - uat*
+- name: internal/admin_api_key
+  key: dev_admin_api_key
+  environmentIn:
+  - dev*
+  - local
+- name: platform/tdl/client_id
+  key: TDL_CLIENT_ID
+  environmentIn:
+  - prod
+- name: platform/tdl/client_id
+  key: TDL_SANDBOX_CLIENT_ID
+  environmentNotIn:
+  - prod
+- name: platform/tdl/auth_key
+  key: TDL_AUTH_KEY
+  environmentIn:
+  - prod
+- name: platform/tdl/auth_key
+  key: TDL_SANDBOX_AUTH_KEY
+  environmentNotIn:
+  - prod
+- name: lenders/mintifi/ob_client_api_key
+  key: MINTIFI_OB_CLIENT_API_KEY
+  environmentIn:
+  - prod
+- name: lenders/mintifi/costbo_api_key
+  key: COSTBO_MINTIFI_OB_API_KEY
+  environmentIn:
+  - prod
+- name: lenders/mintifi/plantix_auth_user
+  key: PLANTIX_MINTIFI_PS_AUTH_USER
+  environmentIn:
+    - prod
+- name: lenders/mintifi/plantix_auth_pass
+  key: PLANTIX_MINTIFI_PS_AUTH_PASS
+  environmentIn:
+    - prod
+- name: lenders/mintifi/costbo_auth_user
+  key: COSTBO_MINTIFI_PS_AUTH_USER
+  environmentIn:
+  - prod
+- name: lenders/mintifi/costbo_auth_pass
+  key: COSTBO_MINTIFI_PS_AUTH_PASS
+  environmentIn:
+  - prod
+- name: lenders/mintifi/lab2land_api_key
+  key: LAB2LAND_MINTIFI_OB_API_KEY
+  environmentIn:
+  - prod
+- name: lenders/mintifi/lab2land_auth_user
+  key: LAB2LAND_MINTIFI_PS_AUTH_USER
+  environmentIn:
+  - prod
+- name: lenders/mintifi/lab2land_auth_pass
+  key: LAB2LAND_MINTIFI_PS_AUTH_PASS
+  environmentIn:
+  - prod
+- name: lenders/mintifi/vyapar_api_key
+  key: VYAPAR_MINTIFI_OB_API_KEY
+  environmentIn:
+  - prod
+- name: lenders/mintifi/vyapar_auth_user
+  key: VYAPAR_MINTIFI_PS_AUTH_USER
+  environmentIn:
+  - prod
+- name: lenders/mintifi/vyapar_auth_pass
+  key: VYAPAR_MINTIFI_PS_AUTH_PASS
+  environmentIn:
+  - prod
+- name: lenders/iifl/dre_maker_key
+  key: LENDING_IIFL_DREMAKER_KEY
+  environmentIn:
+  - prod
+- name: lenders/iifl/dre_maker_auth_key
+  key: LENDING_IIFL_DREMAKER_AUTHENTICATION_KEY
+  environmentIn:
+  - prod
+- name: lenders/iifl/dre_maker_encryption_key
+  key: LENDING_IIFL_DREMAKER_ENCRYPTION_KEY
+  environmentIn:
+  - prod
+- name: lenders/iifl/insurance_api_key
+  key: IIFL_INSURANCE_API_KEY
+  environmentIn:
+  - prod
+- name: lenders/iifl/insurance_sub_key
+  key: IIFL_SUBSCRIPTION_KEY
+  environmentIn:
+  - prod
+- name: internal/redis/master_address
+  key: REDIS_MASTER_ADDRESS_PROD
+  environmentIn:
+  - prod
+- name: internal/redis/master_address
+  key: REDIS_MASTER_ADDRESS_UAT
+  environmentIn:
+  - uat*
+- name: internal/redis/replica_address
+  key: REDIS_REPLICA_ADDRESS_PROD
+  environmentIn:
+    - prod
+- name: internal/redis/replica_address
+  key: REDIS_REPLICA_ADDRESS_UAT
+  environmentIn:
+    - uat*
+- name: internal/sqs/transactions
+  key: prod_SQS_URL_TRANSACTIONS
+  environmentIn:
+    - prod
+- name: internal/sqs/transactions
+  key: uat_SQS_URL_TRANSACTIONS
+  environmentIn:
+    - uat*
+- name: internal/sqs/transactions
+  key: dev_SQS_URL_TRANSACTIONS
+  environmentIn:
+    - dev*
+    - local
+- name: thirdparty/sentinel/kb
+  key: SENTINEL_KHATABOOK_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/kb
+  key: SENTINEL_KHATABOOK_API_KEY_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/pdfcrowd
+  key: PDFCROWD_USERNAME
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+    - prod
+- name: thirdparty/pdfcrowd
+  key: PDFCROWD_APIKEY
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+    - prod
+- name: thirdparty/sentinel/kb
+  key: SENTINEL_KHATABOOK_API_KEY_DEV
+  environmentIn:
+    - dev*
+    - local
+- name: thirdparty/sentinel/iifl
+  key: SENTINEL_IIFL_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/iifl
+  key: SENTINEL_IIFL_API_KEY_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/sentinel/iifl
+  key: SENTINEL_IIFL_API_KEY_DEV
+  environmentIn:
+    - dev*
+    - local
+- name: thirdparty/sentinel/ecofy
+  key: SENTINEL_ECOFY_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/ecofy
+  key: SENTINEL_ECOFY_API_KEY_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/sentinel/ecofy
+  key: SENTINEL_ECOFY_API_KEY_DEV
+  environmentIn:
+    - dev*
+    - local
+- name: thirdparty/sentinel/tcap
+  key: SENTINEL_TCAP_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/tcap
+  key: SENTINEL_TCAP_API_KEY_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/sentinel/tcap
+  key: SENTINEL_TCAP_API_KEY_DEV
+  environmentIn:
+    - dev*
+    - local
+- name: thirdparty/sentinel/ef
+  key: SENTINEL_EF_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/ef
+  key: SENTINEL_EF_API_KEY_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/sentinel/ef
+  key: SENTINEL_EF_API_KEY_DEV
+  environmentIn:
+    - dev*
+    - local
+- name: internal/change_password
+  key: CHANGE_PASSWORD_SECRET_KEY
+  environmentIn:
+    - dev*
+    - local
+    - uat*
+    - prod
+- name: thirdparty/octopus/client_id
+  key: OCTOPUS_CLIENT_ID_UAT
+  environmentNotIn:
+    - prod
+- name: thirdparty/octopus/client_id
+  key: OCTOPUS_CLIENT_ID_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/leegality/muthoot/api_token
+  key: LEEGALITY_API_TOKEN_MUTHOOT
+  environmentIn:
+    - prod
+    - uat*
+- name: thirdparty/leegality/muthoot/private_salt
+  key: LEEGALITY_PRIVATE_SALT_MUTHOOT
+  environmentIn:
+    - prod
+    - uat*
+- name: thirdparty/sentinel/muthoot
+  key: SENTINEL_MUTHOOT_API_KEY_UAT
+  environmentNotIn:
+    - prod
+- name: thirdparty/sentinel/muthoot
+  key: SENTINEL_MUTHOOT_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: lender/onemuthoot/apikey
+  key: ONEMUTHOOT_API_KEY
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/octopus/auth/bearer
+  key: OCTOPUS_AUTH_BEARER
+  environmentIn:
+    - prod
+- name: thirdparty/camspay/encryption
+  key: CAMSPAY_ENCRYPTION_SECRET
+  environmentIn:
+    - prod
+- name: thirdparty/camspay/merchantref
+  key: CAMSPAY_MERCHANT_REFNO
+  environmentIn:
+    - prod
+- name: thirdparty/camspay/encryption
+  key: CAMSPAY_ENCRYPTION_SECRET_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/camspay/merchantref
+  key: CAMSPAY_MERCHANT_REFNO_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: services/activity/octopus
+  key: OCTOPUS_ACTIVITY_API_KEY
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+    - prod
+- name: services/activity/lisa
+  key: LISA_ACTIVITY_API_KEY
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+    - prod
+- name: services/activity/kyc_service
+  key: KYC_SERVICE_ACTIVITY_API_KEY
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+    - prod
+- name: services/activity/bc
+  key: BC_ACTIVITY_API_KEY
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+    - prod
+- name: thirdparty/kycservice/base_url
+  key: KYC_SERVICE_URL
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/kycservice/api_key
+  key: KYC_SERVICE_API_KEY
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/kycservice/auth/bearer
+  key: KYC_SERVICE_AUTH_BEARER
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/kycservice/client_id
+  key: KYC_SERVICE_CLIENT_ID
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/digio/upi_creds
+  key: DIGIO_UPI_TOKEN
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/sentinel/pfl
+  key: SENTINEL_PFL_API_KEY_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/sentinel/pfl
+  key: SENTINEL_PFL_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: sourceentity/tata/sms
+  key: TATA_SMS_AUTH_HEADER
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/digio/pfl
+  key: DIGIO_TOKEN_PFL_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/digio/pfl
+  key: DIGIO_TOKEN_PFL_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/leegality/pfl
+  key: LEEGALITY_API_TOKEN_PFL_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/leegality/pfl
+  key: LEEGALITY_PRIVATE_SALT_PFL_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/leegality/pfl
+  key: LEEGALITY_API_TOKEN_PFL_SANDBOX
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/leegality/pfl
+  key: LEEGALITY_PRIVATE_SALT_PFL_SANDBOX
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/sentinel/loantap
+  key: SENTINEL_LOANTAP_API_KEY_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/sentinel/loantap
+  key: SENTINEL_LOANTAP_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_CIBIL_USERID_NON_PROD
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_CIBIL_USERID_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_CIBIL_PASSWORD_NON_PROD
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_CIBIL_PASSWORD_PROD
+  environmentIn:
+    - prod
+- name: internal/tech_admin_password
+  key: DEFAULT_TECH_ADMIN_PASSWORD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/mcl
+  key: SENTINEL_MUTHOOT_CL_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/mcl
+  key: SENTINEL_MUTHOOT_CL_API_KEY_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/leegality/saltmcl
+  key: LEEGALITY_PRIVATE_SALT_MUTHOOT_CL_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/leegality/saltmcl
+  key: LEEGALITY_PRIVATE_SALT_MUTHOOT_CL_SANDBOX
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/leegality/apitokenmcl
+  key: LEEGALITY_API_TOKEN_MUTHOOT_CL_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/leegality/apitokenmcl
+  key: LEEGALITY_API_TOKEN_MUTHOOT_CL_SANDBOX
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/cashfree/cashfreemclclientid
+  key: MUTHOOT_CL_CASHFREE_CLIENT_ID
+  environmentIn:
+    - prod
+- name: thirdparty/cashfree/cashfreemclclientsecret
+  key: MUTHOOT_CL_CASHFREE_CLIENT_SECRET
+  environmentIn:
+    - prod
+- name: thirdparty/onefin/onefintoken
+  key: ONE_FIN_ENACH_TOKEN_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/onefin/onefintoken
+  key: ONE_FIN_ENACH_TOKEN_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/digio/mcl
+  key: DIGIO_TOKEN_MUTHOOT_CL_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/digio/mcl
+  key: DIGIO_TOKEN_MUTHOOT_CL_UAT
+  environmentIn:
+    - uat*
+    - dev*
+    - local
+- name: thirdparty/sentinel/tatanexarc
+  key: SENTINEL_TATA_NEXARC_API_KEY_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/sentinel/tatanexarc
+  key: SENTINEL_TATA_NEXARC_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/octopus/gmaps
+  key: GMAPS_GEOCODING_API_KEY_DEV
+  environmentIn:
+    - dev*
+    - local
+- name: thirdparty/octopus/gmaps
+  key: GMAPS_GEOCODING_API_KEY_UAT
+  environmentIn:
+    - uat*
+- name: thirdparty/octopus/gmaps
+  key: GMAPS_GEOCODING_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: internal/temporal/nlb
+  key: TEMPORAL_HOST_PORT
+  environmentIn:
+    - prod
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/gst/karza/abflapikey
+  key: ABFL_KARZA_API_KEY_UAT
+  environmentIn:
+    - local
+    - dev*
+    - uat*
+- name: thirdparty/gst/karza/abflapikey
+  key: ABFL_KARZA_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/abfl
+  key: SENTINEL_ABFL_API_KEY_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/sentinel/abfl
+  key: SENTINEL_ABFL_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/hyperverge/pfl
+  key: HYPERVERGE_KEY_PFL
+  environmentIn:
+    - prod
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/hyperverge/pfl
+  key: HYPERVERGE_APP_ID_PFL
+  environmentIn:
+    - prod
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/hyperverge/finbox
+  key: HYPERVERGE_APP_ID
+  environmentIn:
+    - prod
+    - dev*
+    - uat*
+    - local
+- name: internal/mfa/mfakey
+  key: MFA_CIPHER_KEY
+  environmentIn:
+    - dev*
+    - local
+    - uat*
+    - prod
+- name: thirdparty/zoop
+  key: ZOOP_APP_ID
+  environmentIn:
+    - dev*
+    - local
+    - uat*
+    - prod
+- name: thirdparty/zoop
+  key: ZOOP_API_KEY
+  environmentIn:
+    - dev*
+    - local
+    - uat*
+    - prod
+- name: thirdparty/razorpay/abfl
+  key: RAZORPAY_ABFL_KEY
+  environmentIn:
+    - prod
+- name: thirdparty/razorpay/abfl
+  key: RAZORPAY_ABFL_KEY_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/razorpay/abfl
+  key: RAZORPAY_ABFL_SECRET
+  environmentIn:
+    - prod
+- name: thirdparty/razorpay/abfl
+  key: RAZORPAY_ABFL_SECRET_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/leegality/abfl
+  key: LEEGALITY_API_TOKEN_ABFL_SANDBOX
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/leegality/abfl
+  key: LEEGALITY_PRIVATE_SALT_ABFL_SANDBOX
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/leegality/abfl
+  key: LEEGALITY_API_TOKEN_ABFL
+  environmentIn:
+    - prod
+- name: thirdparty/leegality/abfl
+  key: LEEGALITY_PRIVATE_SALT_ABFL
+  environmentIn:
+    - prod
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_ABFL_CIBIL_USERID_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_ABFL_CIBIL_PASSWORD_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_ABFL_CIBIL_USERID_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/octopus/tuef/cibil
+  key: TUEF_ABFL_CIBIL_PASSWORD_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: lenders/fibe/secretkey
+  key: FIBE_API_KEY_UAT
+  environmentIn:
+    - uat*
+    - local
+- name: lenders/fibe/secretkey
+  key: FIBE_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/fibe
+  key: SENTINEL_FIBE_API_KEY_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/sentinel/fibe
+  key: SENTINEL_FIBE_API_KEY_PROD
+  environmentIn:
+    - prod
+- name: anchor/tata
+  key: TATA_AUTH
+  environmentIn:
+    - prod
+- name: internal/sqs/transactions
+  key: prod_SQS_URL_GST_WAIT_STATE_REVERT
+  environmentIn:
+    - prod
+- name: internal/sqs/transactions
+  key: uat_SQS_URL_GST_WAIT_STATE_REVERT
+  environmentIn:
+    - uat*
+- name: internal/sqs/transactions
+  key: dev_SQS_URL_GST_WAIT_STATE_REVERT
+  environmentIn:
+    - dev*
+    - local
+- name: internal/s3_access_key_id
+  key: S3_PRESIGNEDURL_ACCESS_KEY_ID
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: internal/s3_access_key_secret
+  key: S3_PRESIGNEDURL_ACCESS_SECRET
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: lenders/iifl/quickpay_rsa_key
+  key: LENDING_IIFL_QUICKPAY_KEY_NON_PROD
+  environmentIn:
+    - prod
+    - uat*
+    - dev*
+    - local
+- name: lenders/iifl/quickpay_rsa_key
+  key: LENDING_IIFL_QUICKPAY_KEY_PROD
+  environmentIn:
+    - prod
+- name: lenders/iifl/token
+  key: IIFL_TOP_UP_TOKEN
+  environmentIn:
+    - prod
+- name: lenders/iifl/key
+  key: IIFL_TOP_UP_KEY
+  environmentIn:
+    - prod
+- name: thirdparty/sentinel/landt
+  key: SENTINEL_LANDT_API_KEY_UAT
+  environmentIn:
+    - dev*
+    - uat*
+    - local
+- name: thirdparty/sentinel/landt
+  key: SENTINEL_LANDT_API_KEY_PROD
+  environmentIn:
+    - prod
