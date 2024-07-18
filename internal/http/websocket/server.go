@@ -39,17 +39,17 @@ func EventCont(c *websocket.Conn) {
 
 			return // Calls the deferred function, i.e. closes the connection on error
 		}
-		var eventData events.EventData
+		var EventMessage events.EventMessage
 		fmt.Println(string(message))
-		err = json.Unmarshal(message, &eventData)
+		err = json.Unmarshal(message, &EventMessage)
 		if err != nil {
 			log.Println("can not Unmarshal message")
 		}
 		if messageType == websocket.TextMessage {
 			// Broadcast the received message
 			broadcast <- BroadcastObject{
-				eventData: eventData,
-				from:      clientObj,
+				EventMessage: EventMessage,
+				from:         clientObj,
 			}
 		} else {
 			log.Println("websocket message received of type", messageType)

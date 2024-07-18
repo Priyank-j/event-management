@@ -14,9 +14,9 @@ type ClientObject struct {
 }
 
 type BroadcastObject struct {
-	eventData events.EventData
-	msg       string
-	from      ClientObject
+	EventMessage events.EventMessage
+	msg          string
+	from         ClientObject
 }
 
 var clients = make(miniClient) // Initialized as a nested map

@@ -24,8 +24,8 @@ func startWebsocketServer() {
 
 	app := fiber.New()
 	app.Use(limiter.New(limiter.Config{
-		Expiration: time.Minute,
-		Max:        1,
+		Expiration: time.Second,
+		Max:        1000,
 	}))
 
 	// init redis

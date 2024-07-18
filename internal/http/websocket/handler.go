@@ -16,7 +16,7 @@ func SocketHandler() {
 
 		case message := <-broadcast:
 			fmt.Println(message.msg)
-			events.TrigerEvent(message.eventData)
+			events.TrigerEvent(message.EventMessage)
 
 		case client := <-unregister:
 			removeClient(client.user) // Update client removal

@@ -38,7 +38,7 @@ func byteTokafkaMessage(batch [][]byte) []kafka.Message {
 	return kafkaMessages
 }
 
-func TrigerEvent(event EventData) {
+func TrigerEvent(event EventMessage) {
 
 	ctx := context.Background()
 	eventBytes, err := json.Marshal(event)
