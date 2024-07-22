@@ -82,8 +82,8 @@ COPY conf/temporalsubmitconfig.yml config
 # Copy keys yaml for ssm
 COPY conf/keys.yaml config/keys.yaml
 
-# Expose port 3332 to the outside world	
-EXPOSE 3332
+# Expose port 3335 to the outside world	
+EXPOSE 3335
 
 EXPOSE ${PROMETHEUS_PORT}
 
@@ -102,7 +102,7 @@ ENV PROMETHEUS_PORT=${PROMETHEUS_PORT}
 # VOLUME [${LOG_DIR}]
 
 # check if we want to exit on health check fail
-#HEALTHCHECK --start-period=300s --interval=30s --timeout=2s --retries=5 CMD curl -f http://localhost:3333/ || exit 1 
+#HEALTHCHECK --start-period=300s --interval=30s --timeout=2s --retries=5 CMD curl -f http://localhost:3335/ || exit 1 
 
 # Copy the Pre-built binary file from the previous stage
 COPY --from=builder /app/go-events .

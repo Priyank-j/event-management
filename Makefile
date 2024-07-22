@@ -31,9 +31,9 @@ dockerstop:
  	else echo "no go-docker-event-optimized-${stage} container found"; fi; 
 
 run: dockerstop
-	port=$(shell echo ${stage} | sed 's/[^0-9]*//g' | sed 's/^$$/1/' | awk '{print $$1 "+3332"}' | bc); \
-	if [ ${stage} = "local" ]; then docker run -d --name go-docker-event-optimized-${stage} -e STAGE=${stage} -e AWS_PROFILE=${aws_profile} -v ${HOME}/.aws/credentials:/root/.aws/credentials:ro -p $$port:3332 -v ~/logs/go-docker:/app/logs go-docker-event-optimized-${stage};\
-	else docker run -d --restart unless-stopped --network finboxnet --name go-docker-event-optimized-${stage} --pids-limit 50 -e STAGE=${stage} -e DD_ENV=${stage} -e DD_SERVICE="lending-middleware-apis" -e DD_VERSION=$(shell git rev-parse --short HEAD) -l com.datadoghq.tags.env=${stage} -l com.datadoghq.tags.service="lending-middleware-apis" -l com.datadoghq.tags.version=$(shell git rev-parse --short HEAD) -p $$port:3332 -v ~/logs/go-docker:/app/logs ${cloud-watch-logs} go-docker-event-optimized-${stage}; fi;\
+	port=$(shell echo ${stage} | sed 's/[^0-9]*//g' | sed 's/^$$/1/' | awk '{print $$1 "+3335"}' | bc); \
+	if [ ${stage} = "local" ]; then docker run -d --name go-docker-event-optimized-${stage} -e STAGE=${stage} -e AWS_PROFILE=${aws_profile} -v ${HOME}/.aws/credentials:/root/.aws/credentials:ro -p $$port:3335 -v ~/logs/go-docker:/app/logs go-docker-event-optimized-${stage};\
+	else docker run -d --restart unless-stopped --network finboxnet --name go-docker-event-optimized-${stage} --pids-limit 50 -e STAGE=${stage} -e DD_ENV=${stage} -e DD_SERVICE="lending-middleware-apis" -e DD_VERSION=$(shell git rev-parse --short HEAD) -l com.datadoghq.tags.env=${stage} -l com.datadoghq.tags.service="lending-middleware-apis" -l com.datadoghq.tags.version=$(shell git rev-parse --short HEAD) -p $$port:3335 -v ~/logs/go-docker:/app/logs ${cloud-watch-logs} go-docker-event-optimized-${stage}; fi;\
 
 
 all: build run logs

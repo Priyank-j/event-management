@@ -37,7 +37,7 @@ services:
       dockerfile: LocalDockerfile
     restart: always
     ports:
-      - 3332:3332
+      - 3335:3335
     volumes:
       - ${HOME}/.aws/credentials:/root/.aws/credentials:ro
       - ~/logs/go-docker:/app/logs

@@ -33,8 +33,8 @@ RUN apk add build-base
 
 RUN apk add libxml2-dev libxslt-dev xz-dev zlib-dev
 
-# Expose port 3332 to the outside world
-EXPOSE 3332
+# Expose port 3335 to the outside world
+EXPOSE 3335
 
 EXPOSE 2345
 EXPOSE ${PROMETHEUS_PORT}

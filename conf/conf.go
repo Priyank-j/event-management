@@ -76,7 +76,7 @@ func getBaseURL() string {
 	case ENV_DEV_TDL:
 		return "wss://lendingtestdev.finbox.in"
 	case ENV_LOCAL:
-		return "ws://localhost:3332"
+		return "ws://localhost:3335"
 	case ENV_DEV + "2":
 		return "wss://lendingtestdev2.finbox.in"
 	}
@@ -126,7 +126,7 @@ func GetPlatformDashboardURL(organizationID string) string {
 	case ENV_UAT10:
 		return "ws://finbox-platform-dashboard-uat-10.s3-website.ap-south-1.amazonaws.com"
 	case ENV_LOCAL:
-		return "ws://localhost:3332"
+		return "ws://localhost:3335"
 	default:
 		return "wss://platformuat.finbox.in"
 	}

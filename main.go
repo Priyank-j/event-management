@@ -53,7 +53,7 @@ func startWebsocketServer() {
 
 	app.Get("/event", websocket.New(internalWebsocket.EventCont))
 
-	addr := flag.String("addr", ":3332", "http service address")
+	addr := flag.String("addr", ":3335", "http service address")
 	flag.Parse()
 	app.Listen(*addr)
 }
