@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"code.cloudfoundry.org/go-batching"
-	kafka "github.com/segmentio/kafka-go"
 )
 
 func InitEvents() {
@@ -24,14 +23,5 @@ func InitEvents() {
 	Batcher = batching.NewByteBatcher(100, time.Second*5, writer)
 	EventChan = make(chan []byte, 100)
 	Done = make(chan struct{})
-
-	topic := "quickstart-events"
-	KafkaConn = &kafka.Writer{
-		// TODO: Add server urls in Config/constants
-
-		Addr:     kafka.TCP("localhost:9092"),
-		Topic:    topic,
-		Balancer: &kafka.LeastBytes{},
-	}
 
 }
