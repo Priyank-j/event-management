@@ -1,2 +1,2 @@
-# go-event-management
+# event-management
 Websocket  and kafka event management
